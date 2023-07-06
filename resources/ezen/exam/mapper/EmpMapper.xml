@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ezen.exam.mapper.EmpMapper">
+
+	<insert id="employeeJoin"
+		parameterType="ezen.exam.vo.EmpVO">
+		INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, SAL)
+		VALUES (#{empno}, #{ename}, #{job}, #{mgr}, #{sal})
+	</insert>
+
+	<select id="getEmployeeList"
+		resultType="ezen.exam.vo.EmpVO">
+		SELECT * FROM EMP
+	</select>
+
+	<select id="getEmployeeByEmpNo"
+		resultType="ezen.exam.vo.EmpVO">
+		SELECT * FROM EMP WHERE EMPNO = #{empno}
+	</select>
+	
+	<delete id="deleteEmployee">
+	    DELETE FROM EMP WHERE EMPNO = #{empno}
+	</delete>
+
+</mapper>
